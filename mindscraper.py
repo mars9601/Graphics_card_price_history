@@ -16,20 +16,25 @@ def get3070_ti_ventus():
     print('Web site exists')
     soup = BeautifulSoup(page.content, 'html.parser')
     div = soup.find('div',attrs={'class':'pprice'})
-    rows = div.find_all('span')
-    rawprice = rows[1].text.split()
-    if len(rawprice) > 1:
-      graka = rawprice[1].split(",")
-    else: 
-      rows = div.contents[4]
-      graka = rows.replace('\xa0','').split(",")
-    rtx3070_ti_ventus = int(graka[0].replace('.', ''))
-    return(rtx3070_ti_ventus)
+    naa = soup.find('div',attrs={'class':'not_available_anymore'})
+    if naa == None:
+      rows = div.find_all('span')
+      rawprice = rows[1].text.split()
+      if len(rawprice) > 1:
+        graka = rawprice[1].split(",")
+      else: 
+        rows = div.contents[4]
+        graka = rows.replace('\xa0','').split(",")
+      output = int(graka[0].replace('.', ''))
+      return(output)
+    else:
+      print('Out of Stock')
+      return(None)
   else:
     print('Web site does not exist')
     return(None)
   
-   
+  
 def get3070_ti_trio():
   url = f'https://www.mindfactory.de/product_info.php/8GB-MSI-GeForce-RTX-3070-Ti-GAMING-X-TRIO-Aktiv-PCIe-4-0-x16-_1415003.html'
   page = requests.get(url)
@@ -38,15 +43,20 @@ def get3070_ti_trio():
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
     div = soup.find('div',attrs={'class':'pprice'})
-    rows = div.find_all('span')
-    rawprice = rows[1].text.split()
-    if len(rawprice) > 1:
-      graka = rawprice[1].split(",")
-    else: 
-      rows = div.contents[4]
-      graka = rows.replace('\xa0','').split(",")
-    rtx3070_ti_trio = int(graka[0])
-    return(rtx3070_ti_trio)
+    naa = soup.find('div',attrs={'class':'not_available_anymore'})
+    if naa == None:
+      rows = div.find_all('span')
+      rawprice = rows[1].text.split()
+      if len(rawprice) > 1:
+        graka = rawprice[1].split(",")
+      else: 
+        rows = div.contents[4]
+        graka = rows.replace('\xa0','').split(",")
+      output = int(graka[0].replace('.', ''))
+      return(output)
+    else:
+      print('Out of Stock')
+      return(None)
   else:
     print('Web site does not exist')
     return(None)
@@ -58,16 +68,21 @@ def get3080_ventus():
   if page.status_code == 200:
     print('Web site exists')
     soup = BeautifulSoup(page.content, 'html.parser')
-    div = soup.find('div',{'class':'pprice'})
-    rows = div.find_all('span')
-    rawprice = rows[1].text.split()
-    if len(rawprice) > 1:
-      graka = rawprice[1].split(",")
-    else: 
-      rows = div.contents[4]
-      graka = rows.replace('\xa0','').split(",")
-    rtx3080_ventus = int(graka[0].replace('.', ''))
-    return(rtx3080_ventus)
+    div = soup.find('div',attrs={'class':'pprice'})
+    naa = soup.find('div',attrs={'class':'not_available_anymore'})
+    if naa == None:
+      rows = div.find_all('span')
+      rawprice = rows[1].text.split()
+      if len(rawprice) > 1:
+        graka = rawprice[1].split(",")
+      else: 
+        rows = div.contents[4]
+        graka = rows.replace('\xa0','').split(",")
+      output = int(graka[0].replace('.', ''))
+      return(output)
+    else:
+      print('Out of Stock')
+      return(None)
   else:
     print('Web site does not exist')
     return(None)
@@ -80,15 +95,20 @@ def get3080_trio():
     print('Web site exists')
     soup = BeautifulSoup(page.content, 'html.parser')
     div = soup.find('div',attrs={'class':'pprice'})
-    rows = div.find_all('span')
-    rawprice = rows[1].text.split()
-    if len(rawprice) > 1:
-      graka = rawprice[1].split(",")
-    else: 
-      rows = div.contents[4]
-      graka = rows.replace('\xa0','').split(",")
-    rtx3080_trio = int(graka[0].replace('.', ''))
-    return(rtx3080_trio)
+    naa = soup.find('div',attrs={'class':'not_available_anymore'})
+    if naa == None:
+      rows = div.find_all('span')
+      rawprice = rows[1].text.split()
+      if len(rawprice) > 1:
+        graka = rawprice[1].split(",")
+      else: 
+        rows = div.contents[4]
+        graka = rows.replace('\xa0','').split(",")
+      output = int(graka[0].replace('.', ''))
+      return(output)
+    else:
+      print('Out of Stock')
+      return(None)
   else:
     print('Web site does not exist')
     return(None)
