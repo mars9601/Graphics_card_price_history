@@ -4,10 +4,11 @@ from genericpath import exists
 from operator import contains
 from bs4 import BeautifulSoup
 from matplotlib.pyplot import text
+from pytz import timezone
 import requests
 import mysql.connector
 from datetime import datetime
-
+import pytz
 
 def get3070_ti_ventus():
   url = f'https://www.mindfactory.de/product_info.php/8GB-MSI-GeForce-RTX-3070-Ti-VENTUS-3X-OC-8G-DDR6--Retail-_1415002.html'
@@ -121,8 +122,8 @@ t80 = get3080_trio()
 
 print(v70,t70,v80,t80)
 
-
-now = datetime.utcnow()
+tz = pytz.timezone('Europe/Berlin')
+now = datetime.now(tz)
 
 mydb = mysql.connector.connect(
   host="192.168.111.21",
