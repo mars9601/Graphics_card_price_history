@@ -122,7 +122,7 @@ t80 = get3080_trio()
 print(v70,t70,v80,t80)
 
 
-now = datetime.now()
+now = datetime.utcnow()
 
 mydb = mysql.connector.connect(
   host="192.168.111.21",
