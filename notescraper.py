@@ -107,7 +107,7 @@ tuf80 = ASUS_TUF_3080()
 print(rog70,tuf70,rog80,tuf80)
 
 
-now = datetime.now()
+now = datetime.utcnow()
 
 mydb = mysql.connector.connect(
   host="192.168.111.21",
