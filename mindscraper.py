@@ -118,8 +118,7 @@ t80 = MSI_3080_trio()
 
 print(v70,t70,v80,t80)
 
-tz = pytz.timezone('Europe/Berlin')
-now = datetime.now(tz)
+now = datetime.now()
 
 mydb = mysql.connector.connect(
   host="192.168.111.21",
