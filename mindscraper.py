@@ -10,7 +10,7 @@ import mysql.connector
 from datetime import datetime
 import pytz
 
-def get3070_ti_ventus():
+def MSI_3070_ti_ventus():
   url = f'https://www.mindfactory.de/product_info.php/8GB-MSI-GeForce-RTX-3070-Ti-VENTUS-3X-OC-8G-DDR6--Retail-_1415002.html'
   page = requests.get(url)
   if page.status_code == 200:
@@ -35,8 +35,7 @@ def get3070_ti_ventus():
     print('Web site does not exist')
     return(None)
   
-  
-def get3070_ti_trio():
+def MSI_3070_ti_trio():
   url = f'https://www.mindfactory.de/product_info.php/8GB-MSI-GeForce-RTX-3070-Ti-GAMING-X-TRIO-Aktiv-PCIe-4-0-x16-_1415003.html'
   page = requests.get(url)
   if page.status_code == 200:
@@ -62,8 +61,7 @@ def get3070_ti_trio():
     print('Web site does not exist')
     return(None)
   
-
-def get3080_ventus():  
+def MSI_3080_ventus():  
   url = f'https://www.mindfactory.de/product_info.php/12GB-MSI-GeForce-RTX-3080-VENTUS-3X-PLUS-OC-LHR-GDDR6X-3xDP-1-4a-1xHDMI_1443612.html'
   page = requests.get(url)
   if page.status_code == 200:
@@ -88,8 +86,7 @@ def get3080_ventus():
     print('Web site does not exist')
     return(None)
   
-
-def get3080_trio():
+def MSI_3080_trio():
   url = f'https://www.mindfactory.de/product_info.php/12GB-MSI-GeForce-RTX-3080-GAMING-Z-TRIO-LHR-GDDR6X--Retail-_1440262.html'
   page = requests.get(url)
   if page.status_code == 200:
@@ -115,10 +112,10 @@ def get3080_trio():
     return(None)
   
 
-v70 = get3070_ti_ventus()
-t70 = get3070_ti_trio()
-v80 = get3080_ventus()
-t80 = get3080_trio()
+v70 = MSI_3070_ti_ventus()
+t70 = MSI_3070_ti_trio()
+v80 = MSI_3080_ventus()
+t80 = MSI_3080_trio()
 
 print(v70,t70,v80,t80)
 
@@ -134,7 +131,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-sql = "INSERT INTO mindscraper (time, RTX3070_ti_ventus, RTX3070_ti_trio, RTX3080_ventus, RTX3080_trio) VALUES(%s, %s, %s, %s, %s)"
+sql = "INSERT INTO mindscraper (time, MSI_RTX3070_ti_ventus, MSI_RTX3070_ti_trio, MSI_RTX3080_ventus, MSI_RTX3080_trio) VALUES(%s, %s, %s, %s, %s)"
 val = (now, v70, t70, v80, t80)
 mycursor.execute(sql, val)
 
