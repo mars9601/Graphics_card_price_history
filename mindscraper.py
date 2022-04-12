@@ -111,7 +111,6 @@ def MSI_3080_trio():
     print('Web site does not exist')
     return(None)
   
-
 v70 = MSI_3070_ti_ventus()
 t70 = MSI_3070_ti_trio()
 v80 = MSI_3080_ventus()
